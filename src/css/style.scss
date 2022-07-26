@@ -1,0 +1,113 @@
+@import './normalize.scss';
+@import './_variable.scss';
+@import url('https://fonts.googleapis.com/css2?family=Mulish:wght@400;600;700&display=swap');
+
+body{
+  font-family: 'Mulish', sans-serif;
+}
+
+[class*="__title"]{
+  font-weight: 700;
+    font-size: 19px;
+    line-height: 24px;
+    letter-spacing: 0.4px;
+    color: $text-color;
+}
+
+[class*="__subtitle"]{
+  @include forText12;
+  color: $text-grey-light;
+}
+
+.row{
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+  margin-top: 30px;
+}
+
+.text-black{
+  color: $text-color;
+}
+
+.information{
+  @include bgWhite;
+  flex: 1 1 auto;
+
+  &__header{
+    @include dfl;
+    padding: 32px 32px 8px 32px;
+  }
+  &__subtitle {
+    padding-left: 32px;
+  }
+
+  &__list{
+    margin-top: 16px;
+  }
+
+  &__item{
+    @include dfl;
+    padding: 20px 32px;
+    @include forText14; 
+      
+      &:not(:first-child){
+        border-top: 1px solid #DFE0EB;
+      }
+  }
+
+  &__item-value{
+  }
+  
+  &__item-res{
+    color: $text-grey;
+  }
+}
+
+.view{
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 143%;
+  text-align: right;
+  letter-spacing: 0.2px;
+  color: #3751FF;
+}
+
+.like-btn{
+  border-radius: 100px;
+  padding: 5px 12px;
+  background: #F0F1F7;
+  color: #fff;
+  display: inline;
+  text-transform: uppercase;
+}
+
+.view{
+  cursor: pointer;  
+}
+
+.default{
+  color: $text-grey;
+}
+
+.high{
+  background: $color-high;
+}
+
+.low{
+  background: $color-low;
+}
+.normal{
+  background: $color-normal;
+}
+
+.wrap{
+margin-left: 255px;
+padding: 30px;
+background: #E5E5E5;
+}
+
+.container{
+  max-width: 1420px;
+  margin: 0 auto;
+}

@@ -1,0 +1,107 @@
+@import '../../css/variable';
+
+.users{
+  @include bgWhite;
+
+  &__header{
+    padding: 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__sort{
+    display: flex;
+
+    .sort-icon{
+      margin-right: 8px;
+      cursor: pointer;
+    }
+  }
+
+  &__info{
+    padding:16px  32px 12px 32px;
+    display: flex;
+    align-items: center;
+    // justify-content: space-between;
+  }
+
+  &__details{
+    flex: 0 0 455px;
+  }
+
+  &__company{
+    flex: 0 0 248px;
+  }
+
+  &__email{
+    flex: 0 0 210px;
+  }
+
+  &__distance{
+    flex: 1 1 auto;
+  }
+}
+
+.list{
+
+  &__item{
+    display: flex;
+    align-items: center;
+    padding: 24px 32px;
+    border-top: 1px solid #DFE0EB;
+    @include forText14;
+
+    &:hover{
+      background: rgba(#3751FF, .04);
+      cursor: pointer;
+    }
+
+  }
+
+  &__details{
+    display: flex;
+    align-items: center;
+  }
+
+  &__avatar{
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    line-height: 0;
+    overflow: hidden;
+    margin-right: 24px;
+
+      img{
+        width: 100%;
+        object-fit: contain;
+      }
+  }
+
+  &__name{
+    color: $text-color;
+  }
+
+  &__details{
+    flex: 0 0 455px;
+  }
+
+  &__company{
+    flex: 0 0 248px;
+  }
+
+  &__email{
+    flex: 0 0 210px;
+  }
+
+  &__distance{
+    flex: 1 1 auto;
+  }
+
+  &__more{
+    background: #ccc;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+  }
+}

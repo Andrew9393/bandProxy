@@ -1,0 +1,46 @@
+$text-color: #252733;
+$text-grey-light: #C5C7CD;
+$text-grey: #9FA2B4;
+$color-high: #F12B2C;
+$color-low: #FEC400;
+$color-normal: #29CC97;
+
+@mixin forText14 {
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 143%;
+  letter-spacing: 0.2px;
+}
+
+@mixin forText16 {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 143%;
+  letter-spacing: 0.4px;
+  color: #000;
+}
+
+@mixin forText12 {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 133%;
+  letter-spacing: 0.1px;
+}
+
+@mixin bgWhite {
+  background: #FFFFFF;
+  border: 1px solid #DFE0EB;
+  border-radius: 8px;
+}
+@mixin dfl {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@mixin forText36{
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 45px;
+  letter-spacing: 0.4px;
+}
