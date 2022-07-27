@@ -3,6 +3,8 @@ import {ReactComponent as SortIcon} from '../../image/sort.svg'
 import { useState, useEffect } from 'react'
 import UseJPService from '../../services/UsersService'
 import UserItem from '../userItem/UserItem'
+import Spiner from '../spiner/Spiner'
+import ErrorMessage from '../errorMassage/ErrorMessage'
 
 const Users = (props) => {
 
@@ -13,15 +15,14 @@ const Users = (props) => {
   
   const useJPService = UseJPService();
 
+  const spinner = useJPService.loading ? <Spiner/> : null;
+  const list = userList ? <UserItem users={userList} />  : null
+  const errorMessage = useJPService.error ? <ErrorMessage/> : null;
+
+
   useEffect(() => {
     onReqest()
   },[])
-
-  // const handled = (id) => {
-  //   useJPService
-  //     .getUsersByName(id)
-  //     .then(res => setUserPersonList(res))
-  // }
 
   const onReqest = () => {
     useJPService
@@ -46,107 +47,10 @@ const Users = (props) => {
           <span className='users__email'>Email</span>
           <span className='users__distance'>Distance</span>
         </div>
-          <UserItem users={userList} />
-        {/* <div className="list">
-          <div className="list__item">
-            <div className="list__details">
-              <div className="list__avatar">
-                <img src={man} alt="" />
-              </div>
-              <div className="list__name">Leanne Graham <br/>
-                <span className='list__subtitle'>Gwenborough</span>
-              </div>
-            </div>
-            <div className="list__company">
-              Microsoft <br/>
-              <span className='list__subtitle'>harness real-time e-markets</span>
-            </div>
-            <div className="list__email">
-              asd@asd.asd <br/>
-              <span className='list__subtitle'>hildegard.org</span>
-            </div>
-            <div className="list__distance">
-              <div className='like-btn low'>high</div>
-            </div>
-            <div className="list__more">
-              <span></span>
-            </div>
-          </div>
-          <div className="list__item">
-            <div className="list__details">
-              <div className="list__avatar">
-                <img src={man} alt="" />
-              </div>
-              <div className="list__name">Leanne Graham <br/>
-                <span className='list__subtitle'>Gwenborough</span>
-              </div>
-            </div>
-            <div className="list__company">
-              Microsoft <br/>
-              <span className='list__subtitle'>harness real-time e-markets</span>
-            </div>
-            <div className="list__email">
-              asd@asd.asd <br/>
-              <span className='list__subtitle'>hildegard.org</span>
-            </div>
-            <div className="list__distance">
-              <div className='like-btn low'>high</div>
-            </div>
-            <div className="list__more">
-              <span></span>
-            </div>
-          </div>
-          <div className="list__item">
-            <div className="list__details">
-              <div className="list__avatar">
-                <img src={man} alt="" />
-              </div>
-              <div className="list__name">Leanne Graham <br/>
-                <span className='list__subtitle'>Gwenborough</span>
-              </div>
-            </div>
-            <div className="list__company">
-              Microsoft <br/>
-              <span className='list__subtitle'>harness real-time e-markets</span>
-            </div>
-            <div className="list__email">
-              asd@asd.asd <br/>
-              <span className='list__subtitle'>hildegard.org</span>
-            </div>
-            <div className="list__distance">
-              <div className='like-btn high'>high</div>
-            </div>
-            <div className="list__more">
-              <span></span>
-            </div>
-          </div>
-          <div className="list__item">
-            <div className="list__details">
-              <div className="list__avatar">
-                <img src={man} alt="" />
-              </div>
-              <div className="list__name">Leanne Graham <br/>
-                <span className='list__subtitle'>Gwenborough</span>
-              </div>
-            </div>
-            <div className="list__company">
-              Microsoft <br/>
-              <span className='list__subtitle'>harness real-time e-markets</span>
-            </div>
-            <div className="list__email">
-              asd@asd.asd <br/>
-              <span className='list__subtitle'>hildegard.org</span>
-            </div>
-            <div className="list__distance">
-              <div className='like-btn low'>high</div>
-            </div>
-            <div className="list__more">
-              <span></span>
-            </div>
-          </div>
-        </div> */}
+           {spinner}
+           {errorMessage}
+           {list}
       </div>
-
     </div>
     </>
    );

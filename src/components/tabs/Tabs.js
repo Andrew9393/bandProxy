@@ -3,7 +3,7 @@ import './tabs.scss'
 const Tabs = () => {
   return ( 
     <div className="tabs">
-      <div className="tabs__item">
+      <div className="tabs__item mycursor">
         <div className="tabs__name">Active</div>
         <div className="tabs__value">60</div>
       </div>

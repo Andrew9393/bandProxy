@@ -1,5 +1,6 @@
   import './sidebar.scss';
   import logo from '../../image/logo.png'
+  import { useNavigate } from 'react-router-dom'
   import {ReactComponent as Overview} from '../../image/overview.svg'
   import {ReactComponent as UsersIcon} from '../../image/users.svg'
   import {ReactComponent as IdeasIcon} from '../../image/ideas.svg'
@@ -11,18 +12,21 @@
  
 
   const Sidebar = () => {
+
+    const navigate = useNavigate();
+
     return (
       <div className="sidebar">
         <a href="/" className="sidebar__logo"><img src={logo} alt="" />Dashboard</a>
         <ul className="sidebar__list">
-          <div className="sidebar__item">
+          <div className="sidebar__item ">
             <div className="sidebar__icon-item">
               <Overview className="svg" width="16" height="16"/>
               <span>Overview</span>  
             </div>
           </div>
-          <div className="sidebar__item">
-            <div className="sidebar__icon-item">
+          <div className="sidebar__item sidebar__item-active">
+            <div className="sidebar__icon-item" onClick={() => navigate('/', { replace: true })}>
                 <UsersIcon className="svg" width="16" height="11"/>
               <span>Users</span>  
             </div>

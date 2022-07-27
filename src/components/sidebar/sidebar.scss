@@ -9,7 +9,8 @@
   &__list{
     margin: 16px 0;
   }
-
+  
+ 
   &__item{
     position: relative;
     padding: 32px;
@@ -24,24 +25,18 @@
     letter-spacing: 0.2px;
     cursor: pointer;
 
+    
+    
+    
     &__icon-item{
       display: flex;
       align-items: center;
     }
-
+    
     span{
       margin-left: 24px;
     }
 
-    &__item-active{
-      background: rgba(#9FA2B4, .08);
-      color: #DDE2FF;
-
-      .svg * {
-        fill: #DDE2FF;
-        opacity: 1;
-      }
-    }
         
     &:hover{
       background: rgba(#9FA2B4, .08);
@@ -73,5 +68,16 @@
     img{
       margin-right: 12px;  
     }
+  }
+}
+
+.sidebar__item-active{
+  background: rgba(#9FA2B4, .08);
+  color: #DDE2FF;
+  border-left: 3px solid #DDE2FF;
+
+  .svg * {
+    fill: #DDE2FF;
+    opacity: 1;
   }
 }

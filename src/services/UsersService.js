@@ -1,25 +1,17 @@
+import { useHttp } from "../hooks/http.hook";
+
 const UseJPService = () => {
-    const _apiBase = 'https://jsonplaceholder.typicode.com/';
+  const {loading, request, error} = useHttp();
+  const _apiBase = 'https://jsonplaceholder.typicode.com/';
   
-    const getResours = async(url) => {
-        const result = await fetch(url)
-        
-        if(!result.ok){
-          throw new Error(`Errors - ${result.ok}`)
-        }
-        
-        return await result.json();
-      }
-
-
   const getAllUsers = async () => {
-      const res = await getResours(`${_apiBase}users`);
+      const res = await request(`${_apiBase}users`);
       console.log(res);
       return res.map(_transformUser) 
   }
 
   const getUsersByName = async (id) => {
-      const res = await getResours(`${_apiBase}users/${id}`);
+      const res = await request(`${_apiBase}users/${id}`);
       return ({
         name: res.name,
         id: res.id,
@@ -31,8 +23,6 @@ const UseJPService = () => {
         photo: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbGUA9ksyrCerUe8f_fx5-411ks8IJipf0g_uVOwfyStgQTXVb9JEHFzmcXdWfzJDkkPA&usqp=CAU'
       })
   }
-
-
 
   const _transformUser = (user) => {
     return {
@@ -47,7 +37,7 @@ const UseJPService = () => {
     }
   }
  
-  return {getAllUsers, getUsersByName}
+  return {loading, error, getAllUsers, getUsersByName}
 
 }
 
