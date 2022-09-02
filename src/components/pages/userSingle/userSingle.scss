@@ -2,6 +2,8 @@
 
 .user-singel{
   @include bgWhite;     
+
+  text-align: center;
   
   &__head{
     position: relative;
@@ -10,7 +12,7 @@
     bottom: 0;
     flex-direction: column;
     align-items: center;
-    padding: 150px 0 70px 0;
+    padding: 150px 0 20px 0;
     z-index: 5;
 
     &::after{
@@ -23,8 +25,13 @@
       background: url('../../../image/bgUser.jpg');
       z-index: -1;
     }
+
   }
 
+  &__post{
+    padding: 30px;
+  }
+  
   &__img{
     width: 145px;
     height: 145px;

@@ -1,5 +1,5 @@
 import './userInfo.scss'
-import {useParams, Link} from 'react-router-dom'
+import {useParams, useNavigate} from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import Spiner from '../spiner/Spiner'
 import UseJPService from '../../services/UsersService'
@@ -7,12 +7,15 @@ import UseJPService from '../../services/UsersService'
 
 const UserInfo = () => {
   const [user, setUser] = useState(null)
+  const [post, setPost] = useState(null)
   const {id} = useParams()
+  const navigate = useNavigate();
 
   const useJPService = UseJPService();
 
   useEffect(() => {
     onReqest()
+    onReqestPost()
   },[])
 
   const onReqest = () => {
@@ -20,36 +23,29 @@ const UserInfo = () => {
       .getUsersByName(id)
       .then(res => setUser(res))
   }
+  
+  const onReqestPost = () => {
+    useJPService
+      .getUsersPost(id)
+      .then(res => setPost(res))
+  }
 
   const spinner = useJPService.loading ? <Spiner/> : null;
 
   return ( 
     <> 
       {spinner}
-      {user && (<div className="user-singel">
+      {user && post && (<div className="user-singel">
             <div className="user-singel__head">
               <div className="user-singel__img">
                 <img src={user.photo ? user.photo : "no photo" } alt="" /></div>
               <div className="user-singel__name">{user.name}</div>
               <div className="user-singel__phrase">{user.company.catchPhrase}</div>
             </div>
-            <div className="user-singel__contacts">
-              <div className="user-singel__address">
-                <h2>Address</h2>
-                {user.address.street} {user.address.suite} <br/>
-                {user.address.city} {user.address.zipcode}
-              </div>
-              <div className="user-singel__phone">
-                <h2>Phone</h2>
-                {user.phone}
-              </div>
-              <div className="user-singel__site">
-                <h2>Website</h2>
-                <Link to={user.website}>
-                  {user.website}
-                </Link>
-              </div>
-            </div> 
+            <button className='close' onClick={() => navigate(-1)}>back</button>
+            <div className="user-singel__post">
+              <p>{post.body}</p>
+            </div>
         </div>
       )}
   </>

@@ -1,9 +1,6 @@
 import {useParams, Link} from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import UseJPService from '../../../services/UsersService'
-import Header from '../../header/Header'
-import Tabs from '../../tabs/Tabs';
-import Sidebar from '../../sidebar/Sidebar';
 import UserInfo from '../../userInfo/UserInfo';
 import './userSingle.scss';
 import Spiner from '../../spiner/Spiner';
@@ -33,10 +30,7 @@ const UserSingle = (item) => {
   return (
     <> 
         <div className="container">
-          <Sidebar />
             <div className="wrap"> 
-              <Header/>
-              <Tabs/>
               {errorMessage}
               {spinner}
               {content}

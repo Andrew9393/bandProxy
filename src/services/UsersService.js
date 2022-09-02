@@ -6,7 +6,6 @@ const UseJPService = () => {
   
   const getAllUsers = async () => {
       const res = await request(`${_apiBase}users`);
-      console.log(res);
       return res.map(_transformUser) 
   }
 
@@ -23,6 +22,22 @@ const UseJPService = () => {
         photo: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbGUA9ksyrCerUe8f_fx5-411ks8IJipf0g_uVOwfyStgQTXVb9JEHFzmcXdWfzJDkkPA&usqp=CAU'
       })
   }
+  const getUsersPost = async (id) => {
+    const res = await request(`${_apiBase}posts/${id}`);
+    return ({
+      id: res.id,
+      title: res.title,
+      body: res.body
+    })
+  } 
+
+  const getUsersAlbum = async (id) => {
+    const res = await request(`${_apiBase}albums/${id}`);
+    return ({
+      id: res.id,
+      title: res.title,
+    })
+  } 
 
   const _transformUser = (user) => {
     return {
@@ -37,7 +52,7 @@ const UseJPService = () => {
     }
   }
  
-  return {loading, error, getAllUsers, getUsersByName}
+  return {loading, error, getAllUsers, getUsersByName, getUsersPost, getUsersAlbum}
 
 }
 

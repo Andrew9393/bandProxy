@@ -102,7 +102,7 @@ body{
 }
 
 .wrap{
-margin-left: 255px;
+margin: 0 auto;
 padding: 30px;
 background: #E5E5E5;
 }
@@ -110,4 +110,17 @@ background: #E5E5E5;
 .container{
   max-width: 1420px;
   margin: 0 auto;
+}
+
+.btn{
+  padding: 10px;
+  margin-right: 20px;
+  border-radius: 5px;
+  text-transform: uppercase;
+  cursor: pointer;
+  border: 1px solid #c2c2c2;
+
+    &:hover{
+      box-shadow: 0px 0px 5px 1px #c3c3c3;
+    }
 }

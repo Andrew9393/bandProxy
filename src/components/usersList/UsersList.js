@@ -32,21 +32,19 @@ const Users = (props) => {
 
   return ( 
     <>
+    
     <div className="users">
       <div className="users__header">
         <div className="users__title">All users</div>
-        <div className="users__sort">
-          <SortIcon className='sort-icon' width="16" height="16" />
-          Sort
-        </div>
       </div>
       <div className="users__body">
         <div className="users__info">
           <span className='users__details'>User details</span>
           <span className='users__company'>Company name</span>
           <span className='users__email'>Email</span>
-          <span className='users__distance'>Distance</span>
+          <span className='users__distance'></span>
         </div>
+          
            {spinner}
            {errorMessage}
            {list}
